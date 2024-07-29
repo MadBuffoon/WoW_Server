@@ -1,14 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Wz8IFhiujQKMWf7otv6C6GMuF+hWnCzMZhYN/5IslSt5kH96wYO9DRUrrk+C8KVC9TdF5tFBQ8sY4tIFVHjv3A==",
+  "dgSpecHash": "UxAgS059R/ykk8C2oiuE+i9mZn+qy8xe0pmvXwU4RgHhZUb+OQneVFzAKUu2HnR66iNBxyes0D2aN52F32uTbA==",
   "success": true,
   "projectFilePath": "F:\\Coding\\WoW Server\\WoW Server\\WoW Server.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\MadBuffoon\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\MadBuffoon\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.12\\microsoft.netcore.app.runtime.win-x64.7.0.12.nupkg.sha512",
-    "C:\\Users\\MadBuffoon\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.12\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.12.nupkg.sha512",
-    "C:\\Users\\MadBuffoon\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.12\\microsoft.aspnetcore.app.runtime.win-x64.7.0.12.nupkg.sha512",
-    "C:\\Users\\MadBuffoon\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\7.0.12\\microsoft.netcore.app.crossgen2.win-x64.7.0.12.nupkg.sha512"
+    "C:\\Users\\MadBuffoon\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

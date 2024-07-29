@@ -6,6 +6,12 @@
         <RootNamespace>WoW_Server</RootNamespace>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
+        <Version>1.0.1</Version>
+        <Title>WoW Server</Title>
+        <Authors>MadBuffoon</Authors>
+        <Description>To start / stop and auto restart a wow server.
+Also can make backups of the logs on a restart.</Description>
+        <PackageProjectUrl>https://github.com/MadBuffoon/WoW_Server/</PackageProjectUrl>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
