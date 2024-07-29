@@ -1,0 +1,23 @@
+F:\Coding\WoW Server\WoW Server\bin\Debug\net7.0-windows\WoW Server.exe
+F:\Coding\WoW Server\WoW Server\bin\Debug\net7.0-windows\WoW Server.deps.json
+F:\Coding\WoW Server\WoW Server\bin\Debug\net7.0-windows\WoW Server.runtimeconfig.json
+F:\Coding\WoW Server\WoW Server\bin\Debug\net7.0-windows\WoW Server.dll
+F:\Coding\WoW Server\WoW Server\bin\Debug\net7.0-windows\WoW Server.pdb
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\MainWindow.g.cs
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\App.g.cs
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server_MarkupCompile.cache
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server_MarkupCompile.lref
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\MainWindow.baml
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.g.resources
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.GeneratedMSBuildEditorConfig.editorconfig
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.AssemblyInfoInputs.cache
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.AssemblyInfo.cs
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.csproj.CoreCompileInputs.cache
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.dll
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\refint\WoW Server.dll
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.pdb
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.genruntimeconfig.cache
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\ref\WoW Server.dll
+F:\Coding\WoW Server\WoW Server\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.csproj.AssemblyReference.cache
+F:\Coding\WoW Server\WoW Server\obj\Debug\net7.0-windows\WoW Server.csproj.CopyComplete

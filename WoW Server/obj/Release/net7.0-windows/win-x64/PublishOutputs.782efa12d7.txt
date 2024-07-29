@@ -1,0 +1,2 @@
+F:\Coding\WoW Server\WoW Server\bin\Publish\WoW Server.pdb
+F:\Coding\WoW Server\WoW Server\bin\Publish\WoW Server.exe

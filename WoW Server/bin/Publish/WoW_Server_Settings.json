@@ -1,0 +1,20 @@
+{
+  "WindowWidth": 800.0,
+  "WindowHeight": 600.0,
+  "MysqlExeName": null,
+  "MysqlExePath": null,
+  "MysqlKillWaitTime": 10,
+  "MysqlAutoRestart": false,
+  "AuthExeName": null,
+  "AuthExePath": null,
+  "AuthKillWaitTime": 10,
+  "AuthAutoRestart": false,
+  "WorldExeName": null,
+  "WorldExePath": null,
+  "WorldKillWaitTime": 15,
+  "WorldAutoRestart": false,
+  "WorldCommand1": "save",
+  "WorldCommand2": "announce Server has been forced to shutdown.",
+  "WorldCommand3": "server shutdown 10",
+  "LogFiles": []
+}

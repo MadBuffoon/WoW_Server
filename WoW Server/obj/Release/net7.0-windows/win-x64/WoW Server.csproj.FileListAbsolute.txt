@@ -1,0 +1,23 @@
+F:\Coding\WoW Server\WoW Server\bin\Release\net7.0-windows\win-x64\WoW Server.exe
+F:\Coding\WoW Server\WoW Server\bin\Release\net7.0-windows\win-x64\WoW Server.deps.json
+F:\Coding\WoW Server\WoW Server\bin\Release\net7.0-windows\win-x64\WoW Server.runtimeconfig.json
+F:\Coding\WoW Server\WoW Server\bin\Release\net7.0-windows\win-x64\WoW Server.dll
+F:\Coding\WoW Server\WoW Server\bin\Release\net7.0-windows\win-x64\WoW Server.pdb
+F:\Coding\WoW Server\WoW Server\bin\Release\net7.0-windows\win-x64\Newtonsoft.Json.dll
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.csproj.AssemblyReference.cache
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\MainWindow.g.cs
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\App.g.cs
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server_MarkupCompile.cache
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server_MarkupCompile.lref
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\MainWindow.baml
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.g.resources
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.GeneratedMSBuildEditorConfig.editorconfig
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.AssemblyInfoInputs.cache
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.AssemblyInfo.cs
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.csproj.CoreCompileInputs.cache
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.csproj.CopyComplete
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.dll
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\refint\WoW Server.dll
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.pdb
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\WoW Server.genruntimeconfig.cache
+F:\Coding\WoW Server\WoW Server\obj\Release\net7.0-windows\win-x64\ref\WoW Server.dll
