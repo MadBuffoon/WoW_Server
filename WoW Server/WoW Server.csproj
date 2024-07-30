@@ -6,27 +6,28 @@
         <RootNamespace>WoW_Server</RootNamespace>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
-        <Version>1.0.1</Version>
+        <UseWindowsForms>true</UseWindowsForms> <!-- Added to enable Windows Forms -->
+        <Version>1.0.2</Version>
         <Title>WoW Server</Title>
         <Authors>MadBuffoon</Authors>
         <Description>To start / stop and auto restart a wow server.
-Also can make backups of the logs on a restart.</Description>
+            Also can make backups of the logs on a restart.</Description>
         <PackageProjectUrl>https://github.com/MadBuffoon/WoW_Server/</PackageProjectUrl>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <PlatformTarget>x64</PlatformTarget>
+        <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Resources\Status-ColorBlock-Green.png" />
-      <EmbeddedResource Include="Resources\Status-ColorBlock-Green.png" />
-      <None Remove="Resources\Status-ColorBlock-Red.png" />
-      <EmbeddedResource Include="Resources\Status-ColorBlock-Red.png" />
+        <None Remove="Resources\Status-ColorBlock-Green.png" />
+        <EmbeddedResource Include="Resources\Status-ColorBlock-Green.png" />
+        <None Remove="Resources\Status-ColorBlock-Red.png" />
+        <EmbeddedResource Include="Resources\Status-ColorBlock-Red.png" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

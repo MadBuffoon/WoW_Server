@@ -1,28 +1,20 @@
-
-using System;
 using System.Diagnostics;
-using System.Windows;
 
 namespace WoW_Server
 {
     public static class ProcessStarter
     {
-        public static void StartProcess(string executablePath)
+        public static void StartProcess(string executablePath, string arguments = "")
         {
-            if (string.IsNullOrWhiteSpace(executablePath))
+            var startInfo = new ProcessStartInfo
             {
-                MessageBox.Show("Executable path is not set.");
-                return;
-            }
+                FileName = executablePath,
+                Arguments = arguments,
+                UseShellExecute = false,
+                CreateNoWindow = false
+            };
 
-            try
-            {
-                Process.Start(executablePath);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to start process: {ex.Message}");
-            }
+            Process.Start(startInfo);
         }
     }
 }

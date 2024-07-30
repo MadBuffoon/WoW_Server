@@ -41,7 +41,7 @@
                         <TextBlock Text="Status: Stopped" Name="MysqlStatus" Margin="0,0,0,10" TextAlignment="Center"/>
                         <TextBlock Text="Uptime: N/A" Name="MysqlUptime" Margin="0,0,0,10" TextAlignment="Center"/>
                         <Button Content="Start" Width="100" Name="MysqlButton" Click="MysqlButton_Click"/>
-                        <StackPanel Margin="0,10,0,0">
+                        <StackPanel Margin="10,10,10,0">
                             <CheckBox Name="MysqlAutoRestart" Content="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="AutoRestart_Checked" Unchecked="AutoRestart_Unchecked"/>
                         </StackPanel>
                     </StackPanel>
@@ -53,7 +53,7 @@
                         <TextBlock Text="Status: Stopped" Name="AuthStatus" Margin="0,0,0,10" TextAlignment="Center"/>
                         <TextBlock Text="Uptime: N/A" Name="AuthUptime" Margin="0,0,0,10" TextAlignment="Center"/>
                         <Button Content="Start" Width="100" Name="AuthButton" Click="AuthButton_Click"/>
-                        <StackPanel Margin="0,10,0,0">
+                        <StackPanel Margin="10,10,10,0">
                             <CheckBox Name="AuthAutoRestart" Content="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="AutoRestart_Checked" Unchecked="AutoRestart_Unchecked"/>
                         </StackPanel>
                     </StackPanel>
@@ -65,7 +65,7 @@
                         <TextBlock Text="Status: Stopped" Name="WorldStatus" Margin="0,0,0,10" TextAlignment="Center"/>
                         <TextBlock Text="Uptime: N/A" Name="WorldUptime" Margin="0,0,0,10" TextAlignment="Center"/>
                         <Button Content="Start" Width="100" Name="WorldButton" Click="WorldButton_Click"/>
-                        <StackPanel Margin="0,10,0,0">
+                        <StackPanel Margin="10,10,10,0">
                             <CheckBox Name="WorldAutoRestart" Content="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="AutoRestart_Checked" Unchecked="AutoRestart_Unchecked"/>
                         </StackPanel>
                     </StackPanel>
@@ -120,7 +120,7 @@
                                     <TextBlock Text="Kill Wait Time (s):" VerticalAlignment="Center" Margin="0,0,10,0"/>
                                     <TextBox Name="MysqlKillWaitTime" Width="200" Grid.Column="1" Margin="0,0,0,10"/>
                                 </Grid>
-                                <Button Content="Set" Width="100" Click="SetMysql_Click"/>
+                                <Button Content="Browse" Width="100" Click="SetMysql_Click"/>
                                 <Button Content="Clear" Width="100" Click="ClearMysql_Click"/>
                             </StackPanel>
                             <Separator Grid.Row="1" Margin="0,10,0,10"/>
@@ -152,7 +152,7 @@
                                     <TextBlock Text="Kill Wait Time (s):" VerticalAlignment="Center" Margin="0,0,10,0"/>
                                     <TextBox Name="AuthKillWaitTime" Width="200" Grid.Column="1" Margin="0,0,0,10"/>
                                 </Grid>
-                                <Button Content="Set" Width="100" Click="SetAuth_Click"/>
+                                <Button Content="Browse" Width="100" Click="SetAuth_Click"/>
                                 <Button Content="Clear" Width="100" Click="ClearAuth_Click"/>
                             </StackPanel>
                             <Separator Grid.Row="3" Margin="0,10,0,10"/>
@@ -188,7 +188,7 @@
                                 <TextBox Name="WorldCommand1" Width="200" Margin="0,5,0,5"/>
                                 <TextBox Name="WorldCommand2" Width="200" Margin="0,5,0,5"/>
                                 <TextBox Name="WorldCommand3" Width="200" Margin="0,5,0,10"/>
-                                <Button Content="Set" Width="100" Click="SetWorld_Click"/>
+                                <Button Content="Browse" Width="100" Click="SetWorld_Click"/>
                                 <Button Content="Clear" Width="100" Click="ClearWorld_Click"/>
                             </StackPanel>
                             <Separator Grid.Row="5" Margin="0,10,0,10"/>
@@ -220,7 +220,7 @@
             <TabItem Header="About">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="Author: MadBuffoon" FontWeight="Bold" FontSize="16" Margin="0,10,0,10"/>
-                    <TextBlock Text="Version: 1.0.1" FontWeight="Bold" FontSize="16" Margin="0,10,0,10"/>
+                    <TextBlock Text="Version: 1.0.2" FontWeight="Bold" FontSize="16" Margin="0,10,0,10"/>
                     <TextBlock FontWeight="Bold" FontSize="16" Margin="0,10,0,10">
                         GitHub: 
                         <Hyperlink NavigateUri="https://github.com/MadBuffoon/WoW_Server/" RequestNavigate="Hyperlink_RequestNavigate">

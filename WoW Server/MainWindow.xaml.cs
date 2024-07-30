@@ -48,7 +48,7 @@ namespace WoW_Server
             CheckWorldStatus();
         }
 
-        private void CheckMysqlStatus()
+        private async void CheckMysqlStatus()
         {
             bool isRunning = ProcessChecker.IsProcessRunning(SaveLoadManager.MysqlExeName);
             MysqlStatus.Text = isRunning ? "Status: Running" : "Status: Stopped";
@@ -58,13 +58,14 @@ namespace WoW_Server
 
             if (!isRunning && SaveLoadManager.MysqlAutoRestart)
             {
-                ProcessStarter.StartProcess(SaveLoadManager.MysqlExePath);
                 SaveLoadManager.ZipLogFiles();
-                AppendLog($"AutoRestarted MySQL at {DateTime.Now}");
+                await Task.Delay(500);
+                ProcessStarter.StartProcess(SaveLoadManager.MysqlExePath);
+                AppendLog($"AutoRestarted MySQL at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
             }
         }
 
-        private void CheckAuthStatus()
+        private async void CheckAuthStatus()
         {
             bool isRunning = ProcessChecker.IsProcessRunning(SaveLoadManager.AuthExeName);
             AuthStatus.Text = isRunning ? "Status: Running" : "Status: Stopped";
@@ -74,13 +75,14 @@ namespace WoW_Server
 
             if (!isRunning && SaveLoadManager.AuthAutoRestart)
             {
-                ProcessStarter.StartProcess(SaveLoadManager.AuthExePath);
                 SaveLoadManager.ZipLogFiles();
-                AppendLog($"AutoRestarted Auth at {DateTime.Now}");
+                await Task.Delay(500);
+                ProcessStarter.StartProcess(SaveLoadManager.AuthExePath);
+                AppendLog($"AutoRestarted Auth at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
             }
         }
 
-        private void CheckWorldStatus()
+        private async void CheckWorldStatus()
         {
             bool isRunning = ProcessChecker.IsProcessRunning(SaveLoadManager.WorldExeName);
             WorldStatus.Text = isRunning ? "Status: Running" : "Status: Stopped";
@@ -90,9 +92,10 @@ namespace WoW_Server
 
             if (!isRunning && SaveLoadManager.WorldAutoRestart)
             {
-                ProcessStarter.StartProcess(SaveLoadManager.WorldExePath);
                 SaveLoadManager.ZipLogFiles();
-                AppendLog($"AutoRestarted World at {DateTime.Now}");
+                await Task.Delay(500);
+                ProcessStarter.StartProcess(SaveLoadManager.WorldExePath);
+                AppendLog($"AutoRestarted World at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
             }
         }
 
@@ -100,8 +103,8 @@ namespace WoW_Server
         {
             if ((string)MysqlButton.Content == "Start")
             {
-                ProcessStarter.StartProcess(SaveLoadManager.MysqlExePath);
-                AppendLog($"Started MySQL at {DateTime.Now}");
+                ProcessStarter.StartProcess(SaveLoadManager.MysqlExePath, "--console");
+                AppendLog($"Started MySQL at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
             }
             else
             {
@@ -110,7 +113,7 @@ namespace WoW_Server
                 SaveLoadManager.MysqlAutoRestart = false;
                 MysqlAutoRestart.IsChecked = false;
                 SaveLoadManager.SaveSettings();
-                AppendLog($"Stopped MySQL at {DateTime.Now}");
+                AppendLog($"Stopped MySQL at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
             }
             CheckMysqlStatus();
         }
@@ -120,7 +123,7 @@ namespace WoW_Server
             if ((string)AuthButton.Content == "Start")
             {
                 ProcessStarter.StartProcess(SaveLoadManager.AuthExePath);
-                AppendLog($"Started Auth at {DateTime.Now}");
+                AppendLog($"Started Auth at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
             }
             else
             {
@@ -129,7 +132,7 @@ namespace WoW_Server
                 SaveLoadManager.AuthAutoRestart = false;
                 AuthAutoRestart.IsChecked = false;
                 SaveLoadManager.SaveSettings();
-                AppendLog($"Stopped Auth at {DateTime.Now}");
+                AppendLog($"Stopped Auth at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
             }
             CheckAuthStatus();
         }
@@ -139,7 +142,7 @@ namespace WoW_Server
             if ((string)WorldButton.Content == "Start")
             {
                 ProcessStarter.StartProcess(SaveLoadManager.WorldExePath);
-                AppendLog($"Started World at {DateTime.Now}");
+                AppendLog($"Started World at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
             }
             else
             {
@@ -149,7 +152,7 @@ namespace WoW_Server
                 SaveLoadManager.WorldAutoRestart = false;
                 WorldAutoRestart.IsChecked = false;
                 SaveLoadManager.SaveSettings();
-                AppendLog($"Stopped World at {DateTime.Now}");
+                AppendLog($"Stopped World at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
             }
             CheckWorldStatus();
         }
@@ -348,18 +351,44 @@ namespace WoW_Server
             }
         }
 
+        private void RemoveLogFile_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var logFile = button.Tag as string;
+            SaveLoadManager.RemoveLogFile(logFile);
+            UpdateLogFilesPanel();
+        }
+
         private void UpdateLogFilesPanel()
         {
             LogFilesPanel.Children.Clear();
 
             foreach (var logFile in SaveLoadManager.LogFiles)
             {
+                var stackPanel = new StackPanel
+                {
+                    Orientation = Orientation.Horizontal,
+                    Margin = new Thickness(0, 5, 0, 5)
+                };
+
                 var textBlock = new TextBlock
                 {
                     Text = System.IO.Path.GetFileName(logFile),
-                    Margin = new Thickness(0, 5, 0, 5)
+                    Margin = new Thickness(0, 0, 10, 0),
+                    VerticalAlignment = VerticalAlignment.Center
                 };
-                LogFilesPanel.Children.Add(textBlock);
+
+                var removeButton = new Button
+                {
+                    Content = "Remove",
+                    Width = 75,
+                    Tag = logFile
+                };
+                removeButton.Click += RemoveLogFile_Click;
+
+                stackPanel.Children.Add(textBlock);
+                stackPanel.Children.Add(removeButton);
+                LogFilesPanel.Children.Add(stackPanel);
             }
 
             var browseButton = new Button

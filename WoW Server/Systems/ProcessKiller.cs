@@ -1,67 +1,65 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Forms;
 
 namespace WoW_Server
 {
     public static class ProcessKiller
     {
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
         public static async Task KillProcessGracefully(string processName, int waitTimeInSeconds, string[] commands = null)
         {
-            if (string.IsNullOrWhiteSpace(processName))
-            {
-                return;
-            }
+            var processes = Process.GetProcessesByName(processName).ToList();
 
-            try
+            foreach (var process in processes)
             {
-                var processes = Process.GetProcessesByName(processName);
-                foreach (var process in processes)
+                if (commands != null && commands.Length > 0)
                 {
-                    if (!process.HasExited)
+                    try
                     {
-                        if (commands != null && commands.Length > 0)
+                        IntPtr hWnd = FindWindow(null, process.MainWindowTitle);
+                        if (hWnd != IntPtr.Zero)
                         {
+                            SetForegroundWindow(hWnd);
+
                             foreach (var command in commands)
                             {
-                                await SendCommandToProcess(process, command);
+                                SendKeys.SendWait(command + "{ENTER}");
+                                await Task.Delay(500); // Small delay between commands
+                            }
+
+                            await Task.Delay(waitTimeInSeconds * 1000);
+                            if (!process.HasExited)
+                            {
+                                process.Kill();
                             }
                         }
-
-                        await Task.Delay(waitTimeInSeconds * 1000);
-
-                        if (!process.HasExited)
-                        {
-                            process.Kill();
-                        }
                     }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error stopping process {processName}: {ex.Message}");
-            }
-        }
-
-        private static async Task SendCommandToProcess(Process process, string command)
-        {
-            try
-            {
-                using (StreamWriter writer = process.StandardInput)
-                {
-                    if (writer.BaseStream.CanWrite)
+                    catch (Exception ex)
                     {
-                        await writer.WriteLineAsync(command);
-                        await writer.FlushAsync();
+                        Console.WriteLine($"Error sending commands to process: {ex.Message}");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error sending command to process {process.ProcessName}: {ex.Message}");
+                else
+                {
+                    try
+                    {
+                        process.Kill();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error killing process: {ex.Message}");
+                    }
+                }
             }
         }
     }
