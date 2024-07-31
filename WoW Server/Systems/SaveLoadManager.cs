@@ -106,11 +106,31 @@ namespace WoW_Server
             }
         }
 
+        public static void RemoveLogFile(string filePath)
+        {
+            if (LogFiles.Contains(filePath))
+            {
+                LogFiles.Remove(filePath);
+                SaveSettings();
+            }
+        }
+
         public static void ZipLogFiles()
         {
+            if (LogFiles.Count == 0)
+            {
+                return; // No logs to zip
+            }
+
             try
             {
-                string zipFileName = $"Logs_{DateTime.Now:yyyyMMdd_HHmmss}.zip";
+                string logsDirectory = "Logs";
+                if (!Directory.Exists(logsDirectory))
+                {
+                    Directory.CreateDirectory(logsDirectory);
+                }
+
+                string zipFileName = Path.Combine(logsDirectory, $"Logs_{DateTime.Now:yyyy_MM_dd_HHmmss}.zip");
                 using (ZipArchive archive = ZipFile.Open(zipFileName, ZipArchiveMode.Create))
                 {
                     foreach (string logFile in LogFiles)

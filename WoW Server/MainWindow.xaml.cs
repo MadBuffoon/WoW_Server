@@ -24,6 +24,7 @@ namespace WoW_Server
             this.Height = SaveLoadManager.WindowHeight;
             InitializeStatusCheckTimer();
             LoadUIValues();
+            SetVersionText();
         }
 
         private void InitializeStatusCheckTimer()
@@ -61,7 +62,8 @@ namespace WoW_Server
                 SaveLoadManager.ZipLogFiles();
                 await Task.Delay(500);
                 ProcessStarter.StartProcess(SaveLoadManager.MysqlExePath);
-                AppendLog($"AutoRestarted MySQL at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
+                AppendLog($"AutoRestarted MySQL at {DateTime.Now:HH:mm:ss MM/dd/yyyy}");
+                await Task.Delay(1000);
             }
         }
 
@@ -78,7 +80,8 @@ namespace WoW_Server
                 SaveLoadManager.ZipLogFiles();
                 await Task.Delay(500);
                 ProcessStarter.StartProcess(SaveLoadManager.AuthExePath);
-                AppendLog($"AutoRestarted Auth at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
+                AppendLog($"AutoRestarted Auth at {DateTime.Now:HH:mm:ss MM/dd/yyyy}");
+                await Task.Delay(1000);
             }
         }
 
@@ -95,7 +98,8 @@ namespace WoW_Server
                 SaveLoadManager.ZipLogFiles();
                 await Task.Delay(500);
                 ProcessStarter.StartProcess(SaveLoadManager.WorldExePath);
-                AppendLog($"AutoRestarted World at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
+                AppendLog($"AutoRestarted World at {DateTime.Now:HH:mm:ss MM/dd/yyyy}");
+                await Task.Delay(1000);
             }
         }
 
@@ -104,7 +108,7 @@ namespace WoW_Server
             if ((string)MysqlButton.Content == "Start")
             {
                 ProcessStarter.StartProcess(SaveLoadManager.MysqlExePath, "--console");
-                AppendLog($"Started MySQL at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
+                AppendLog($"Started MySQL at {DateTime.Now:HH:mm:ss MM/dd/yyyy}");
             }
             else
             {
@@ -113,7 +117,7 @@ namespace WoW_Server
                 SaveLoadManager.MysqlAutoRestart = false;
                 MysqlAutoRestart.IsChecked = false;
                 SaveLoadManager.SaveSettings();
-                AppendLog($"Stopped MySQL at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
+                AppendLog($"Stopped MySQL at {DateTime.Now:HH:mm:ss MM/dd/yyyy}");
             }
             CheckMysqlStatus();
         }
@@ -123,7 +127,7 @@ namespace WoW_Server
             if ((string)AuthButton.Content == "Start")
             {
                 ProcessStarter.StartProcess(SaveLoadManager.AuthExePath);
-                AppendLog($"Started Auth at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
+                AppendLog($"Started Auth at {DateTime.Now:HH:mm:ss MM/dd/yyyy}");
             }
             else
             {
@@ -132,7 +136,7 @@ namespace WoW_Server
                 SaveLoadManager.AuthAutoRestart = false;
                 AuthAutoRestart.IsChecked = false;
                 SaveLoadManager.SaveSettings();
-                AppendLog($"Stopped Auth at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
+                AppendLog($"Stopped Auth at {DateTime.Now:HH:mm:ss MM/dd/yyyy}");
             }
             CheckAuthStatus();
         }
@@ -142,7 +146,7 @@ namespace WoW_Server
             if ((string)WorldButton.Content == "Start")
             {
                 ProcessStarter.StartProcess(SaveLoadManager.WorldExePath);
-                AppendLog($"Started World at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
+                AppendLog($"Started World at {DateTime.Now:HH:mm:ss MM/dd/yyyy}");
             }
             else
             {
@@ -152,7 +156,7 @@ namespace WoW_Server
                 SaveLoadManager.WorldAutoRestart = false;
                 WorldAutoRestart.IsChecked = false;
                 SaveLoadManager.SaveSettings();
-                AppendLog($"Stopped World at {DateTime.Now:HH:mm:ss dd/MM/yyyy}");
+                AppendLog($"Stopped World at {DateTime.Now:HH:mm:ss MM/dd/yyyy}");
             }
             CheckWorldStatus();
         }
@@ -414,6 +418,12 @@ namespace WoW_Server
             {
                 LogsTextBox.ScrollToEnd();
             }
+        }
+
+        private void SetVersionText()
+        {
+            var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            VersionTextBlock.Text = $"Version: {version}";
         }
     }
 }
